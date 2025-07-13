@@ -5,11 +5,11 @@
 
 ## Background
 
-Understanding the electronic properties of novel materials is essential for developing efficient and sustainable technologies. However, simulating these properties—especially those that depend on quantum interactions like electrical conductivity—is computationally expensive. Classical methods such as Density Functional Theory (DFT) are accurate but scale poorly with system size, making them difficult to apply to large or complex materials systems.
+Understanding the electronic properties of novel materials is essential for developing efficient and sustainable technologies. However, simulating these properties—especially those that depend on quantum interactions like electrical conductivity—is computationally expensive. Classical methods such as Density Functional Theory (DFT) make approximations and scale poorly with system size, making them difficult to apply to large or complex materials systems.
 
 ## Project Overview
 
-This project focuses on simulating and analyzing copper–carbon alloys using a quantum-assisted workflow. The goal is to estimate material properties such as conductivity by modeling how electrons behave in different atomic configurations. We target systems like graphene-doped copper and nanotube-like structures, where geometry and bonding can significantly affect electron flow. Our tool allows users to input atomic configurations and compute predicted properties with improved efficiency, using quantum subroutines to accelerate the most computationally intensive steps.
+Our project focuses on simulating and analyzing copper–carbon alloys using a quantum algorithm. The goal is to estimate material properties such as conductivity by modeling how electrons behave in different atomic configurations. We target systems like graphene-doped copper and nanotube-like structures, where geometry and bonding can significantly affect electron flow. Our tool allows users to input atomic configurations and compute predicted properties with improved efficiency, using quantum subroutines to accelerate the most computationally intensive steps.
 
 ## Technical Implementation
 
