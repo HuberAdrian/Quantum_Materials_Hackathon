@@ -108,6 +108,11 @@ Our primary technical goals are:
 ```
 
 ---
+## 🎥 Presentation
+
+You can view the full presentation here:  
+[Canva Presentation Link](https://www.canva.com/design/DAGs1gttXeY/EdGxj6zRi65g-7BG9pG0Aw/edit)
+---
 
 ## 📚 References and Related Work
 
