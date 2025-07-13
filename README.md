@@ -22,7 +22,3 @@ We use a hybrid quantum–classical approach based on a simplified version of DF
 5. **Property Estimation**: Once the electron density stabilizes, we estimate conductivity by analyzing the density of states near the Fermi level.
 
 This method avoids full matrix diagonalization and achieves better scaling than classical DFT implementations.
-
-## Future Work
-
-We plan to expand this framework by incorporating quantum algorithms for spectral density estimation and by integrating classical or quantum optimization loops to search the alloy composition and structure space. Further development will include simulations of more complex nanostructures, such as carbon-doped copper nanotubes, and comparison of results with classical simulations or experimental data to validate accuracy and reliability.
