@@ -111,19 +111,30 @@ Our primary technical goals are:
 
 ## 📚 References and Related Work
 
-1. **Lamane et al., 2023** – Quantum-Accelerated SCF for DFT via QSVT
-   [https://arxiv.org/pdf/2008.06449](https://arxiv.org/pdf/2008.06449)
+1. **Lamane *et al.* (2023)** – *Quantum-Accelerated SCF for DFT via QSVT*.  
+   [`arXiv:2008.06449`](https://arxiv.org/pdf/2008.06449)
 
-2. **Pix2Pix–YOLOv7 with mmWave Radar for Object Detection**
-   [https://pubs.rsc.org/en/content/articlehtml/2023/ra/d3ra01982a](https://pubs.rsc.org/en/content/articlehtml/2023/ra/d3ra01982a)
+2. **Pix2Pix–YOLOv7 with mmWave Radar for Object Detection** – *RSC Advances* (2023).  
+   [Link](https://pubs.rsc.org/en/content/articlehtml/2023/ra/d3ra01982a)
 
-3. **QML-Accelerated Real-Space DFT** – Appl. Sci. 2024, 14(20), 9273
-   [https://www.mdpi.com/2076-3417/14/20/9273](https://www.mdpi.com/2076-3417/14/20/9273)
+3. **QML-Accelerated Real-Space DFT** – *Applied Sciences*, **14**(20), 9273 (2024).  
+   [MDPI](https://www.mdpi.com/2076-3417/14/20/9273)
 
-4. **Quantum-Enhanced Electronic Structure Modelling** – Magn. Reson. Chem. 2024
-   [https://onlinelibrary.wiley.com/doi/full/10.1002/mgea.73](https://onlinelibrary.wiley.com/doi/full/10.1002/mgea.73)
+4. **Quantum-Enhanced Electronic Structure Modelling** – *Magnetic Resonance in Chemistry* (2024).  
+   [Wiley Online Library](https://onlinelibrary.wiley.com/doi/full/10.1002/mgea.73)
 
----
+5. **Ko *et al.* (2023)** – *DFT on Quantum Computers with Linear Scaling w.r.t. Number of Atoms*.  
+   [`arXiv:2307.07067`](https://arxiv.org/pdf/2307.07067)
+
+6. **Gorsse *et al.* (2023)** – *Mechanical Properties and Electrical Conductivity of Copper-Based Alloys*.  
+   *Scientific Data*, **10**, Article 504.  
+   [Nature](https://www.nature.com/articles/s41597-023-02411-9)
+
+7. **World Bank (2025)** – *Electric power transmission and distribution losses (% of output)*.  
+   [World Bank Indicator EG.ELC.LOSS.ZS](https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS)
+
+8. **United Nations (2015)** – *Sustainable Development Goals (SDGs)*.  
+   [UN SDGs](https://sdgs.un.org/goals)
 
 ## 🧠 Credits
 
