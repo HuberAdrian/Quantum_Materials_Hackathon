@@ -1,24 +1,133 @@
-# Quantum_Materials_Hackathon
+# Quantum-Accelerated SCF-DFT Simulation Using QSVT and QCBM
 
+## 🌍 Vision and Social Impact
 
-# Quantum-Assisted Simulation of Copper–Carbon Materials
+This project was developed as part of the [Hackathon Initiative – Team 6], aiming to explore how cutting-edge quantum computing tools can be harnessed to create **technologies for the public good**.
 
-## Background
+Our simulation platform is a **technical proof-of-concept** that connects **quantum machine learning** and **computational chemistry** to potential real-world use cases such as:
+- **Designing new sustainable materials**
+- **Modeling electronic behavior for next-gen electronics**
+- **Accelerating scientific discovery with fewer resources**
 
-Understanding the electronic properties of novel materials is essential for developing efficient and sustainable technologies. However, simulating these properties—especially those that depend on quantum interactions like electrical conductivity—is computationally expensive. Classical methods such as Density Functional Theory (DFT) make approximations and scale poorly with system size, making them difficult to apply to large or complex materials systems.
+By democratizing access to quantum-accelerated simulation tools and integrating intuitive quantum–classical workflows, we contribute to building a **more inclusive and future-ready computational science toolkit**.
 
-## Project Overview
+---
 
-Our project focuses on simulating and analyzing copper–carbon alloys using a quantum algorithm. The goal is to estimate material properties such as conductivity by modeling how electrons behave in different atomic configurations. We target systems like graphene-doped copper and nanotube-like structures, where geometry and bonding can significantly affect electron flow. Our tool allows users to input atomic configurations and compute predicted properties with improved efficiency, using quantum subroutines to accelerate the most computationally intensive steps.
+## 📘 Overview
 
-## Technical Implementation
+This project implements and extends the methodology described in:
 
-We use a hybrid quantum–classical approach based on a simplified version of DFT:
+> **"Quantum-Accelerated Self-Consistent Field Method for Real-Space DFT Using QSVT"**  
+> *Mohamed Lamane et al., arXiv:2307.07067*  
+> https://arxiv.org/abs/2307.07067
 
-1. **Hamiltonian Construction**: We build a single-particle Hamiltonian from the atomic positions of copper and carbon atoms. This includes kinetic energy and potential energy terms.
-2. **Quantum Encoding**: Using Quantum Singular Value Transformation (QSVT), we apply a polynomial approximation of the Fermi–Dirac distribution to encode the occupied states of the system into a quantum state.
-3. **Density Measurement**: We extract local electron densities via amplitude amplification. These measurements are used to update the electron density.
-4. **Self-Consistent Field Iteration**: The algorithm updates the Hamiltonian based on the measured density and repeats until convergence.
-5. **Property Estimation**: Once the electron density stabilizes, we estimate conductivity by analyzing the density of states near the Fermi level.
+We reproduce the core framework of the paper and expand it by:
+- Integrating **generative quantum circuits (QCBMs)**,
+- Estimating **conductivity via DOS**,
+- Structuring it into a Colab-friendly, educational platform.
 
-This method avoids full matrix diagonalization and achieves better scaling than classical DFT implementations.
+---
+
+## 🎯 Objective
+
+Our primary technical goals are:
+- Simulate a real-space self-consistent field (SCF) loop for DFT,
+- Approximate the Fermi–Dirac function \( f(H) \) using Chebyshev polynomials (QSVT-inspired),
+- Compute electron densities iteratively until convergence,
+- Estimate material conductivity via the density of states (DOS),
+- Generate and benchmark candidate densities using a **Quantum Circuit Born Machine (QCBM)**.
+
+---
+
+## 🧪 Methods Implemented
+
+### 1. Molecular Hamiltonian Construction
+- Built using `pennylane.qchem.Molecule`
+- Basis set: STO-3G
+- Supports both test cases (e.g., LiH) and complex systems (e.g., Cu₂–C₆)
+
+### 2. QSVT-Inspired Fermi–Dirac Filtering
+- Approximates:
+  \[
+  f(H) = \frac{1}{1 + e^{\beta(H - \mu)}} \approx \sum_k c_k T_k(H)
+  \]
+- Chebyshev polynomials are used to simulate QSVT filtering in a classical setting
+
+### 3. Self-Consistent Field (SCF) Loop
+- Uses filtered density to update the Hamiltonian iteratively
+- Simple local potential \( V[n] = \alpha \cdot \text{diag}(n) \) is used for updating \( H[n] \)
+- Loop terminates when density change falls below a threshold
+
+### 4. Quantum Circuit Born Machine (QCBM)
+- 4-qubit variational quantum circuit (VQC) with entanglement and rotation layers
+- Produces synthetic densities for benchmarking or future inverse-design tasks
+
+### 5. Density of States (DOS) and Conductivity
+- Eigenvalue histogram of \( H[n] \) used to estimate DOS
+- Conductivity is approximated by evaluating:
+  \[
+  \sigma \propto g(E_F)
+  \]
+  where \( g(E_F) \) is the DOS at the Fermi level
+
+---
+
+## 🔁 Workflow Summary
+
+```text
+[Input Geometry]
+      ↓
+[Build Hamiltonian H₀]
+      ↓
+[Apply Chebyshev Filter f(H)]
+      ↓
+[Extract Density n(rⱼ)]
+      ↓
+[Update H[n]] → repeat until convergence
+      ↓
+[Estimate DOS & Conductivity] + [QCBM Sampling for Comparison]
+````
+
+---
+
+## 📊 Results
+
+* Visual and numerical comparison of QSVT-SCF-derived density vs QCBM-generated samples
+* Density of States (DOS) plots for conductivity inference
+* Demonstrated convergence of SCF loop in 5–20 iterations for various systems
+
+---
+
+## 📂 File Structure
+
+```
+├── main_notebook.ipynb        # Full simulation pipeline (Colab-compatible)
+├── README.md                  # Project documentation
+└── data/
+    └── cached_H.npy           # Optional: saved Hamiltonians for faster reruns
+```
+
+---
+
+## 📚 References and Related Work
+
+1. **Lamane et al., 2023** – Quantum-Accelerated SCF for DFT via QSVT
+   [https://arxiv.org/pdf/2008.06449](https://arxiv.org/pdf/2008.06449)
+
+2. **Pix2Pix–YOLOv7 with mmWave Radar for Object Detection**
+   [https://pubs.rsc.org/en/content/articlehtml/2023/ra/d3ra01982a](https://pubs.rsc.org/en/content/articlehtml/2023/ra/d3ra01982a)
+
+3. **QML-Accelerated Real-Space DFT** – Appl. Sci. 2024, 14(20), 9273
+   [https://www.mdpi.com/2076-3417/14/20/9273](https://www.mdpi.com/2076-3417/14/20/9273)
+
+4. **Quantum-Enhanced Electronic Structure Modelling** – Magn. Reson. Chem. 2024
+   [https://onlinelibrary.wiley.com/doi/full/10.1002/mgea.73](https://onlinelibrary.wiley.com/doi/full/10.1002/mgea.73)
+
+---
+
+## 🧠 Credits
+
+This work was developed as part of a hackathon initiative (Team 6), with the broader goal of empowering researchers, educators, and developers to integrate quantum acceleration into real-world scientific simulations — from materials discovery to energy systems.
+
+We are committed to **accessible, interpretable, and ethically-aligned quantum computing**.
+
